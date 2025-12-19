@@ -1,0 +1,27 @@
+name : Build and Deploy Next.js App 
+
+on :
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main  
+  
+jobs :
+  build : 
+    name : Build Next.js 
+    runs-on : ubuntu-latest
+    steps :
+      - name : Checkout Repository 
+        uses : actions/checkout@v3
+
+      - name : Install depencencies
+        run : npm install
+  
+      - name : Build Next.js project 
+        run : npm run build
+
+      - name : Build Docker Image 
+        run : docker build -t portfolio .
+    
