@@ -23,14 +23,14 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <span className="inline-block py-1 px-3 rounded-full bg-accent/50 text-accent-foreground text-sm font-semibold mb-4 border border-accent">
-                Fullstack Developer Junior • 4 Ans d'Expérience
+                Fullstack Developer Junior • 4 Ans d&apos;Expérience
               </span>
               <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-6 leading-tight">
                 Architecturer le <span className="text-primary">Web</span> & <br />
                 Maîtriser la <span className="text-secondary">Donnée</span>.
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl leading-relaxed">
-                Je conçois des solutions robustes et scalables. De l'intégration pixel-perfect (Tailwind, SCSS) à l'architecture serveur complexe (Node.js, Next.js), en passant par l'écosystème WINDEV.
+                Je conçois des solutions robustes et scalables. De l&apos;intégration pixel-perfect (Tailwind, SCSS) à l&apos;architecture serveur complexe (Node.js, Next.js), en passant par l&apos;écosystème WINDEV.
               </p>
               
               <div className="flex flex-wrap gap-4">

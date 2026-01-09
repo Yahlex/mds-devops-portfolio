@@ -4,12 +4,19 @@ import Navbar from '../Navbar'
 // Mock Framer Motion
 jest.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, className, initial, animate, exit, ...props }: any) => (
-      <div className={className} {...props}>
-        {children}
-      </div>
-    ),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    div: ({ children, className, ...props }: any) => {
+      // Nettoyage des props spécifiques à Framer Motion qui pourraient être passées
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { initial: _initial, animate: _animate, exit: _exit, ...validProps } = props
+      return (
+        <div className={className} {...validProps}>
+          {children}
+        </div>
+      )
+    },
   },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   AnimatePresence: ({ children }: any) => <>{children}</>,
 }))
 

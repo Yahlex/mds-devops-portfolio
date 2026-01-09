@@ -56,7 +56,7 @@ export default function TechStack() {
         </div>
 
         <div className="space-y-12">
-          {skills.map((skillGroup, groupIndex) => (
+          {skills.map((skillGroup) => (
             <div key={skillGroup.category}>
               <h3 className="text-2xl font-semibold text-primary mb-6 border-l-4 border-primary pl-4">
                 {skillGroup.category}
@@ -74,6 +74,7 @@ export default function TechStack() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function FlipCard({ item, index }: { item: any, index: number }) {
   const [isFlipped, setIsFlipped] = useState(false);
 

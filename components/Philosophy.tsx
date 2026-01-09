@@ -28,7 +28,7 @@ export default function Philosophy() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Philosophie de Code</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            La technique n'est rien sans rigueur. Mon approche du développement repose sur des fondations solides.
+            La technique n&apos;est rien sans rigueur. Mon approche du développement repose sur des fondations solides.
           </p>
         </div>
 

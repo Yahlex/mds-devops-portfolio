@@ -4,9 +4,13 @@ import Hero from '../Hero'
 // Mock de Framer Motion pour éviter les problèmes d'animation dans les tests JSDOM
 jest.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, className, initial, animate, transition, whileHover, ...props }: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    div: ({ children, className, ...props }: any) => {
+       // Nettoyage des props spécifiques à Framer Motion qui pourraient être passées
+       // eslint-disable-next-line @typescript-eslint/no-unused-vars
+       const { initial: _initial, animate: _animate, transition: _transition, whileHover: _whileHover, ...validProps } = props
       return (
-        <div className={className} {...props}>
+        <div className={className} {...validProps}>
           {children}
         </div>
       )

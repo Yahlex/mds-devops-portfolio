@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { 
   Code2, Server, Database, Globe, Cpu, 
   Layout, Smartphone, Cloud, Terminal, Layers 
