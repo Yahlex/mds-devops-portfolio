@@ -14,7 +14,7 @@ permissions:
   
 jobs :
   analyse:
-    name: Build and analyze
+    name: Analyze code by SonarQube
     runs-on: ubuntu-latest
     
     steps:

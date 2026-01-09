@@ -1,0 +1,7 @@
+{
+    "editor.formatOnSave": true,
+    "sonarlint.connectedMode.project": {
+        "connectionId": "SQ MDS DevOps",
+        "projectKey": "Yahlex_mds-devops-portfolio_09d98b77-7f54-4cf5-bc80-651cea22318b"
+    }
+}
