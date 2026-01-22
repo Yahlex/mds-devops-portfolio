@@ -20,6 +20,16 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Build args for frontend monitoring
+ARG NEXT_PUBLIC_FARO_URL
+ARG NEXT_PUBLIC_FARO_APP_NAME
+ARG NEXT_PUBLIC_FARO_APP_VERSION
+
+# Make args available to build command
+ENV NEXT_PUBLIC_FARO_URL=$NEXT_PUBLIC_FARO_URL \
+    NEXT_PUBLIC_FARO_APP_NAME=$NEXT_PUBLIC_FARO_APP_NAME \
+    NEXT_PUBLIC_FARO_APP_VERSION=$NEXT_PUBLIC_FARO_APP_VERSION
+
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.

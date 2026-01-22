@@ -72,7 +72,12 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build Docker Image
-        run: docker build -t portfolio .
+        run: |
+          docker build \
+            --build-arg NEXT_PUBLIC_FARO_URL=${{ secrets.NEXT_PUBLIC_FARO_URL }} \
+            --build-arg NEXT_PUBLIC_FARO_APP_NAME=ia-portfolio-web \
+            --build-arg NEXT_PUBLIC_FARO_APP_VERSION=${{ github.sha }} \
+            -t portfolio .
 
       - name: Log in to Github Container Registry
         uses: docker/login-action@v2
@@ -103,6 +108,13 @@ jobs:
           port: ${{ secrets.SERVER_SSH_PORT }}
           script: |
             cd /home/${{ secrets.SERVER_USER }}/apps/portfolio
+
+            # Create/Update .env file with secrets
+            echo "OTEL_SERVICE_NAME=ia-portfolio-backend" > .env
+            echo "OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf" >> .env
+            echo "OTEL_EXPORTER_OTLP_ENDPOINT=${{ secrets.OTEL_EXPORTER_OTLP_ENDPOINT }}" >> .env
+            echo "OTEL_EXPORTER_OTLP_HEADERS=${{ secrets.OTEL_EXPORTER_OTLP_HEADERS }}" >> .env
+
             docker compose pull
             docker compose down
             docker compose up -d
